@@ -6,14 +6,15 @@ System.config({
     defaultJSExtensions: true,
 
     paths: {
-       'npm:': 'node_modules/'
+       'npm:': 'node_modules/',
+       'deps:': 'production/'
     },
 
     // Let the system loader know where to look for things
     map: {
 
         // Our app is compiled to js files in the dist folder
-        app: 'dist',
+        app: 'build',
 
         // Angular bundles
         '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -34,8 +35,20 @@ System.config({
     // Tell the system loader how to load when no filename and/or no extension
     packages: {
         app: { main: './main.js', defaultExtension: 'js' },
-        rxjs: { defaultExtension: 'js' },
+        // rxjs: { defaultExtension: 'js' },
         'ng2-translate': { defaultExtension: 'js' }
+    },
+
+    bundles: {
+        '/vendor/Rx.min.js': [
+            "rxjs/*",
+            "rxjs/operator/*",
+            "rxjs/observable/*",
+            "rxjs/add/operator/*",
+            "rxjs/add/observable/*",
+            "rxjs/util/*"
+        ],
+        '/js/app.bundle': ['main']
     }
 
 });

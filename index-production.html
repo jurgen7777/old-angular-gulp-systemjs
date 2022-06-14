@@ -15,7 +15,7 @@
 
 
     <script src="production/dependencies.bundle.min.js"></script>
-    <script src="production/app.bundle.min.js"></script>
+    <script src="test-build/main.test.bundle.min.js"></script>
 
 
   </head>
@@ -24,7 +24,7 @@
     <my-app>Loading...</my-app>
 
     <script>
-      System.import('dist/configs/systemjs.config.js').then(function() {
+      System.import('app/configs/systemjs.config.js').then(function() {
         System.import('app').catch(function(err){ console.error(err); });
       });
     </script>
